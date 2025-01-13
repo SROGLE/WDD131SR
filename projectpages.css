@@ -1,0 +1,48 @@
+img{
+    width: 40%;
+    background-color: blue;
+    margin: 50px 30%;
+    padding: 10px;
+    border: groove 3px black;
+}
+p{
+    padding: 20px;
+    background-color: black;
+    color: darkblue;
+    border: double;
+}
+body{
+    background: #333333;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+}
+h1{
+    background-color: black;
+    color: darkblue;
+}
+hr{
+    height: 10px;
+    background-color: black;
+    border: none;
+}
+.headhr{
+    height: 5px;
+    background-color: darkblue;
+    border: none;
+}
+
+nav a{
+    background: black;
+    color: darkblue;
+    text-decoration: none;
+}
+nav a:hover{
+    color: white;
+}
+.navhr {
+    height: 3px;
+    background-color: darkblue;
+    border: none;
+    margin: 2px auto;
+}
