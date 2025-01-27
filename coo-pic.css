@@ -92,6 +92,39 @@ main h2 {
     transform: scale(1.05);
 }
 
+/* Modal */
+.image-modal {
+    display: none;
+    /* Initially hide the modal */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Semi-transparent black background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Ensure it's on top of other content */
+}
+
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background-color: #ddd;
+}
+
 /* Media Queries */
 @media screen and (min-width: 700px) {
     .gallery {

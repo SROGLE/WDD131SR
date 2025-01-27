@@ -1,8 +1,8 @@
 // JavaScript for Cool Pics Gallery
 
 // Toggle menu visibility for responsive navigation
-const menuButton = document.getElementById('menu-button');
-const menuLinks = document.getElementById('menu-links');
+const menuButton = document.getElementById('menu-toggle');
+const menuLinks = document.getElementById('nav-links');
 
 menuButton.addEventListener('click', () => {
     menuLinks.classList.toggle('open'); // Toggle the 'open' class on the menu
@@ -23,6 +23,9 @@ modalClose.className = 'modal-close';
 modal.appendChild(modalImage);
 modal.appendChild(modalClose);
 document.body.appendChild(modal);
+
+// Initially hide the modal
+modal.style.display = 'none';
 
 // Open modal when clicking an image
 galleryImages.forEach((img) => {
