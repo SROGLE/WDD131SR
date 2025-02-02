@@ -1,31 +1,34 @@
-<!-- events.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Events practice: ToDos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Practice: To-Do List</title>
     <style>
         .todos {
             width: 300px;
+            list-style-type: none;
+            padding: 0;
         }
 
-        .todos>li {
+        .todos li {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid;
+            border: 1px solid black;
             padding: 0.5em;
+            margin-bottom: 5px;
         }
 
         .todos p {
             margin: 0;
+            flex-grow: 1;
         }
 
         .todos span {
             cursor: pointer;
+            margin-left: 10px;
         }
 
         .strike {
@@ -36,14 +39,18 @@
 </head>
 
 <body>
-    <h1>ToDos</h1>
+
+    <h1>To-Do List</h1>
     <section>
-        <label for="todo">Enter Task</label>
-        <input name="todo" id="todo" />
+        <label for="todo">Enter Task:</label>
+        <input type="text" id="todo">
         <button id="submitTask">Enter</button>
     </section>
+
     <ul id="todoList" class="todos"></ul>
+
     <script src="dom-events.js"></script>
+
 </body>
 
 </html>
