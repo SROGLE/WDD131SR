@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kids Read For Fun</title>
+    <style>
+      /* Skip to main content link style */
+      .skiptocontent a {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      .skiptocontent a:focus {
+        top: 10px;
+        left: 10px;
+        background-color: #efc69b;
+        color: #af1b3f;
+        padding: 10px;
+        text-decoration: none;
+      }
+
+      /* Body style */
+      body {
+        font-family: serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      header {
+        font-size: 24px;
+        font-weight: bold;
+        padding: 10px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center; /* Centers the navigation links */
+        padding: 5px 20px;
+        border-top: 2px solid #c66;
+        border-bottom: 2px solid #c66;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: darkred;
+        margin-left: 15px;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .sidebar {
+        text-align: left;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .main-content {
+        text-align: left;
+        max-width: 500px;
+      }
+
+      .main-content h2 {
+        color: darkred;
+      }
+
+      .main-content img {
+        width: 150px;
+        display: block;
+        margin: 10px 0;
+      }
+
+      .description {
+        font-size: 14px;
+        color: #444;
+      }
+
+      .description a {
+        color: darkred;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .filters {
+        font-size: 12px;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Skip to main content link -->
+    <div class="skiptocontent">
+      <a href="#main-content">Skip to main content</a>
+    </div>
+
+    <header>Kids Read For Fun</header>
+
+    <nav>
+      <a href="#">About</a>
+      <a href="#">Archive</a>
+      <a href="#">Search</a>
+    </nav>
+
+    <div class="container">
+      <div class="sidebar">
+        <p>July 5, 2022</p>
+        <p>10-14</p>
+        <p>Fantasy</p>
+        <p>★★★★☆</p>
+      </div>
+
+      <div class="main-content" id="main-content">
+        <h2>Septimus Heap Book One: Magyk</h2>
+        <img src="images/proxy-image.png" alt="Magyk book cover" />
+        <p class="description">
+          If you enjoy stories about seventh sons of seventh sons and magyk,
+          this is the book for you. <a href="#">Read More...</a>
+        </p>
+      </div>
+
+      <div class="filters">
+        <p></p>
+      </div>
+    </div>
+  </body>
+</html>
