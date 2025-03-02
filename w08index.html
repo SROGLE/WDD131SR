@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camp Registration</title>
+    <meta name="description" content="Youth camp registration form." />
+    <meta name="author" content="Your Name" />
+    <link rel="stylesheet" href="register208.css" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <form id="registrationForm">
+      <fieldset>
+        <legend>Adult Information</legend>
+        <label for="adultName">Adult Name:</label>
+        <input
+          type="text"
+          id="adultName"
+          name="adultName"
+          required
+        /><br /><br />
+      </fieldset>
+      <fieldset id="participants">
+        <legend>Participant Information</legend>
+        <section class="participant1">
+          <label for="participantName1">Participant Name:</label>
+          <input
+            type="text"
+            id="participantName1"
+            name="participantName1"
+            required
+          /><br /><br />
+          <label for="fee1">Fee:</label>
+          <input type="number" id="fee1" name="fee1" required /><br /><br />
+        </section>
+        <button type="button" id="addParticipant">Add Participant</button>
+      </fieldset>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="summary" style="display: none"></div>
+    <script src="registerw08.js"></script>
+  </body>
+</html>
