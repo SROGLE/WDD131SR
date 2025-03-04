@@ -1,33 +1,48 @@
-// Toggle menu visibility for responsive navigation
-const menuButton = document.getElementById('menu-toggle');
-const menuLinks = document.getElementById('nav-links');
+document.addEventListener("DOMContentLoaded", () => {
+    // Menu Toggle
+    const menuButton = document.querySelector("#menu-toggle");
+    const menu = document.querySelector("#nav-links");
 
-menuButton.addEventListener('click', () => {
-    menuLinks.classList.toggle('open');
-});
-
-// Functionality for the image modal
-const galleryImages = document.querySelectorAll('.gallery img');
-const modal = document.querySelector('.image-modal');
-const modalImage = document.getElementById('modal-image');
-const modalClose = document.querySelector('.modal-close');
-
-// Open modal when clicking an image
-galleryImages.forEach((img) => {
-    img.addEventListener('click', () => {
-        modalImage.src = img.src;
-        modal.style.display = 'flex';
-    });
-});
-
-// Close modal when clicking the close button
-modalClose.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-// Close modal when clicking outside the image
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
+    function toggleMenu() {
+        menu.classList.toggle("hide");
     }
+
+    function handleResize() {
+        if (window.innerWidth > 1000) {
+            menu.classList.remove("hide");
+        } else {
+            menu.classList.add("hide");
+        }
+    }
+
+    menuButton.addEventListener("click", toggleMenu);
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Run once on load
+
+    // Image Viewer Modal
+    function viewerTemplate(pic, alt) {
+        return `
+            <div class="viewer">
+                <button class="close-viewer">X</button>
+                <img src="${pic}" alt="${alt}">
+            </div>`;
+    }
+
+    function viewHandler(event) {
+        if (event.target.tagName === "IMG") {
+            const clickedImage = event.target;
+            const srcParts = clickedImage.src.split("-");
+            const fullImageSrc = srcParts[0] + "-full.jpeg";
+            
+            document.body.insertAdjacentHTML("afterbegin", viewerTemplate(fullImageSrc, clickedImage.alt));
+
+            document.querySelector(".close-viewer").addEventListener("click", closeViewer);
+        }
+    }
+
+    function closeViewer() {
+        document.querySelector(".viewer").remove();
+    }
+
+    document.querySelector(".gallery").addEventListener("click", viewHandler);
 });
