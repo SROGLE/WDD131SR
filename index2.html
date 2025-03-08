@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Book</title>
+    <meta
+      name="description"
+      content="Delicious and easy recipes for everyone."
+    />
+    <meta name="author" content="Your Name" />
+
+    <meta property="og:title" content="Recipe Book" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Delicious and easy recipes for everyone."
+    />
+    <meta property="og:image" content="images/apple-crisp.jpg" />
+    <meta
+      property="og:url"
+      content="https://your-github-username.github.io/your-repo-name/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="recipe.css" />
+  </head>
+  <body>
+    <header>
+      <img src="images/recipe-book.png" alt="Recipe Book Logo" />
+      <h1>RECIPEBOOK</h1>
+    </header>
+    <main>
+      <div class="search-container">
+        <input type="text" placeholder="Find a recipe" />
+        <button type="submit">
+          <img src="images/search.svg" alt="Search" />
+        </button>
+      </div>
+      <div id="recipe-container"></div>
+    </main>
+    <footer>
+      <div class="attribution">Recipe icons created by Freepik - Flaticon</div>
+      <div class="social">
+        <a href="#"><img src="images/youtube_icon.svg" alt="YouTube" /></a>
+        <a href="#"><img src="images/instagram_icon.svg" alt="Instagram" /></a>
+        <a href="#"><img src="images/pinterest_icon.svg" alt="Pinterest" /></a>
+      </div>
+    </footer>
+    <script src="recipe.mjs" type="module"></script>
+    <script src="main.mjs" type="module"></script>
+  </body>
+</html>
