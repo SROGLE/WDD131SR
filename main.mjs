@@ -1,49 +1,88 @@
-import { recipes } from './recipe.mjs';
+// main.mjs
+import recipes from './recipe.mjs';
 
 const recipeContainer = document.getElementById('recipe-container');
+const searchInput = document.querySelector('.search-container input');
+const searchButton = document.querySelector('.search-container button');
 
-function createRecipeCard(recipe) {
-    const card = document.createElement('div');
-    card.classList.add('recipe-card');
-
-    const image = document.createElement('img');
-    image.src = recipe.image;
-    image.alt = recipe.name;
-    card.appendChild(image);
-
-    const details = document.createElement('div');
-    details.classList.add('recipe-details');
-
-    const category = document.createElement('div');
-    category.classList.add('category');
-    category.textContent = recipe.category || 'Dessert';
-
-    details.appendChild(category);
-
-    const title = document.createElement('h2');
-    title.textContent = recipe.name;
-    details.appendChild(title);
-
-    const rating = document.createElement('div');
-    rating.classList.add('rating');
-    // Add ARIA attributes for accessibility
-    rating.setAttribute('role', 'img');
-    rating.setAttribute('aria-label', `Rating: ${recipe.rating} out of 5 stars`);
-    for (let i = 1; i <= 5; i++) {
-        const star = document.createElement('span');
-        star.textContent = i <= recipe.rating ? '★' : '☆';
-        // Add ARIA attributes for individual stars
-        star.setAttribute('aria-hidden', 'true');
-        rating.appendChild(star);
-    }
-    details.appendChild(rating);
-
-    const description = document.createElement('p');
-    description.textContent = recipe.description;
-    details.appendChild(description);
-
-    card.appendChild(details);
-    recipeContainer.appendChild(card);
+function random(num) {
+    return Math.floor(Math.random() * num);
 }
 
-recipes.forEach(createRecipeCard);
+function getRandomListEntry(list) {
+    const listLength = list.length;
+    const randomNum = random(listLength);
+    return list[randomNum];
+}
+
+function tagsTemplate(tags) {
+    let html = '<ul class="recipe__tags">';
+    tags.forEach(tag => {
+        html += `<li>${tag}</li>`;
+    });
+    html += '</ul>';
+    return html;
+}
+
+function ratingTemplate(rating) {
+    let html = `<span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">`;
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            html += `<span aria-hidden="true" class="icon-star">⭐</span>`;
+        } else {
+            html += `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
+        }
+    }
+    html += `</span>`;
+    return html;
+}
+
+function recipeTemplate(recipe) {
+    return `
+    <figure class="recipe">
+        <img src="${recipe.image}" alt="${recipe.name}" />
+        <figcaption>
+            ${tagsTemplate(recipe.tags || [recipe.category])}
+            <h2><a href="#">${recipe.name}</a></h2>
+            <p class="recipe__ratings">
+                ${ratingTemplate(recipe.rating)}
+            </p>
+            <p class="recipe__description">
+                ${recipe.description}
+            </p>
+        </figcaption>
+    </figure>
+    `;
+}
+
+function renderRecipes(recipeList) {
+    recipeContainer.innerHTML = recipeList.map(recipe => recipeTemplate(recipe)).join('');
+}
+
+function filterRecipes(query) {
+    const lowerQuery = query.toLowerCase();
+    const filtered = recipes.filter(recipe => {
+        return (
+            recipe.name.toLowerCase().includes(lowerQuery) ||
+            recipe.description.toLowerCase().includes(lowerQuery) ||
+            recipe.tags?.find(tag => tag.toLowerCase().includes(lowerQuery)) ||
+            recipe.ingredients?.find(ingredient => ingredient.toLowerCase().includes(lowerQuery))
+        );
+    });
+    return filtered.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function searchHandler(e) {
+    e.preventDefault();
+    const query = searchInput.value;
+    const filteredRecipes = filterRecipes(query);
+    renderRecipes(filteredRecipes);
+}
+
+function init() {
+    const recipe = getRandomListEntry(recipes);
+    renderRecipes([recipe]);
+}
+
+searchButton.addEventListener('click', searchHandler);
+init();
