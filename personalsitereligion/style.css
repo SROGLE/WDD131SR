@@ -1,0 +1,223 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Use Montserrat font */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('images/chilldren.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    box-sizing: border-box;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+    /* Gradient background */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 0.3s ease;
+    /* Add transform transition */
+    border-radius: 0 0 10px 10px;
+    /* Rounded corners */
+}
+
+header:hover {
+    transform: scale(1.02);
+    /* Slight scale on hover */
+}
+
+header.fade-in {
+    opacity: 1;
+}
+
+header h1 {
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Text shadow */
+}
+
+.slideshow-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.slide {
+    display: none;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 50vh;
+    height: auto;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.text {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.verse {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.context {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.prompt {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    box-sizing: border-box;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 1);
+    box-sizing: border-box;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in-out;
+    box-sizing: border-box;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.slide.fade-out {
+    animation-name: fade-out;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in-out;
+    box-sizing: border-box;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.dot-container {
+    text-align: center;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    box-sizing: border-box;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+    box-sizing: border-box;
+}
+
+/* Media Query for Phone Devices */
+@media (max-width: 600px) {
+    .verse {
+        font-size: 1rem;
+    }
+
+    .context,
+    .prompt {
+        font-size: 0.9rem;
+    }
+
+    .slide-content {
+        padding: 10px;
+    }
+
+    .slide img {
+        max-width: 90%;
+        max-height: 40vh;
+    }
+}
