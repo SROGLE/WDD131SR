@@ -12,6 +12,12 @@
       content="interest-cohort=(), browsing-topics=()"
     />
     <title>Equinox Warframe Builds</title>
+
+    <!-- Importing Fonts (Orbitron for titles, Roboto for body text) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -22,13 +28,16 @@
         <a href="builds.html">Equinox Builds</a>
       </nav>
     </header>
+
     <main>
       <section>
         <h2>Choose Your Build!</h2>
         <img
-          class="equinox-image"
           src="images/equinox-prime.webp"
-          alt="Equinox Warframe"
+          alt="Equinox Warframe Prime"
+          class="equinox-image"
+          width="150"
+          height="auto"
         />
 
         <!-- Toggle Button for Day/Night Build -->
@@ -39,9 +48,12 @@
         <div id="buildContainer"></div>
       </section>
     </main>
+
     <footer>
       <p>&copy; 2025 Spencer's Warframe Builds</p>
     </footer>
+
+    <!-- Link to main.js -->
     <script src="main.js" defer></script>
   </body>
 </html>
