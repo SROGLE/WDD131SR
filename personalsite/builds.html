@@ -13,12 +13,8 @@
     />
     <title>Equinox Warframe Builds</title>
 
-    <!-- Importing Fonts (Orbitron for titles, Roboto for body text) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <!-- Versioning helps avoid cache issues -->
+    <link rel="stylesheet" href="style.css?v=1" />
   </head>
   <body>
     <header>
@@ -33,17 +29,16 @@
       <section>
         <h2>Choose Your Build!</h2>
         <img
-          src="images/equinox-prime.webp"
-          alt="Equinox Warframe Prime"
           class="equinox-image"
-          width="150"
-          height="auto"
+          src="images/equinox-prime.webp"
+          alt="Equinox Warframe"
+          width="600"
+          height="337"
+          loading="lazy"
         />
 
-        <!-- Toggle Button for Day/Night Build -->
         <button id="toggleBuild">Switch to Night Form</button>
 
-        <!-- Display the build info dynamically here -->
         <div id="buildInfo"></div>
         <div id="buildContainer"></div>
       </section>
@@ -53,7 +48,7 @@
       <p>&copy; 2025 Spencer's Warframe Builds</p>
     </footer>
 
-    <!-- Link to main.js -->
-    <script src="main.js" defer></script>
+    <!-- Defer JS for better performance -->
+    <script src="main.js?v=1" defer></script>
   </body>
 </html>
