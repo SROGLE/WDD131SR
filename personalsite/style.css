@@ -127,13 +127,17 @@ button:hover {
 }
 
 /* Images */
-img {
-    display: block;
-    max-width: 100%;
+.equinox-image {
+    max-width: 20%;
+    /* Reduced max-width to make it smaller like a logo */
     height: auto;
+    /* Keep aspect ratio */
     margin: 10px auto;
+    /* Reduced margin to make it more compact */
+    display: block;
+    /* Ensure it behaves as a block element */
     border-radius: 5px;
-    border: 2px solid var(--accent1);
+    /* Optional: Keep the rounded corners */
 }
 
 /* Footer */
@@ -144,4 +148,11 @@ footer {
     background: var(--secondary);
     color: var(--text-light);
     border-top: 4px solid var(--accent1);
+}
+
+@media (max-width: 600px) {
+    .equinox-image {
+        max-width: 30%;
+        /* On smaller screens, adjust the width further */
+    }
 }

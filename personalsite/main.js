@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const buildInfo = document.getElementById("buildInfo");
   const buildContainer = document.getElementById("buildContainer");
 
+  // Ensure elements exist before proceeding
+  if (!toggleButton || !buildInfo || !buildContainer) {
+    console.error("Required elements not found in the DOM");
+    return;
+  }
+
   let isDayForm = true;
 
   // Display the default build (Day Form)
@@ -15,15 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
     displayBuild(form);
   });
 
+  // Function to display build info for Day and Night forms
   function displayBuild(form) {
     if (form === "Day") {
       buildInfo.innerHTML = `
         <h3>Day Form Build</h3>
-        <p>Focuses on **damage output** with high ability strength.</p>
+        <p>Focuses on <strong>damage output</strong> with high ability strength.</p>
         <ul>
           <li>Mods: Strength Mods (Umbral Intensify, Transient Fortitude)</li>
-          <li>Abilities: **Maim** for AOE damage</li>
-          <li>Weapons: High-crit weapons like the **Tigris Prime**.</li>
+          <li>Abilities: <strong>Maim</strong> for AOE damage</li>
+          <li>Weapons: High-crit weapons like the <strong>Tigris Prime</strong>.</li>
           <li>Focus on maximizing damage with Strength Mods and critical damage multipliers.</li>
         </ul>
         <h4>Recommended Mods for Day Build</h4>
@@ -38,18 +45,17 @@ document.addEventListener("DOMContentLoaded", function () {
           <li>Equinox Neuroptics - Lith S7</li>
           <li>Equinox Chassis - Meso B3</li>
           <li>Equinox Systems - Neo R5</li>
-          <li>Equinox Blueprint - Axi C3</li> <!-- Added Relic for Blueprint -->
         </ul>
       `;
       toggleButton.textContent = "Switch to Night Form";
     } else {
       buildInfo.innerHTML = `
         <h3>Night Form Build</h3>
-        <p>Focuses on **healing and support**, ideal for team play.</p>
+        <p>Focuses on <strong>healing and support</strong>, ideal for team play.</p>
         <ul>
           <li>Mods: Efficiency Mods (Streamline, Fleeting Expertise)</li>
-          <li>Abilities: **Mend** for healing</li>
-          <li>Weapons: Consider using **Nikana Prime** for utility.</li>
+          <li>Abilities: <strong>Mend</strong> for healing</li>
+          <li>Weapons: Consider using <strong>Nikana Prime</strong> for utility.</li>
           <li>Focus on healing, crowd control, and providing buffs for your team.</li>
         </ul>
         <h4>Recommended Mods for Night Build</h4>
@@ -64,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
           <li>Equinox Neuroptics - Lith S7</li>
           <li>Equinox Chassis - Meso B3</li>
           <li>Equinox Systems - Neo R5</li>
-          <li>Equinox Blueprint - Axi C3</li> <!-- Added Relic for Blueprint -->
         </ul>
       `;
       toggleButton.textContent = "Switch to Day Form";
@@ -89,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to display fetched Warframe data
   function displayWarframeData(data) {
-    // Filter out only relevant Warframes (e.g., Equinox)
     const relevantWarframes = data.filter(warframe => 
       warframe.name === "Equinox" || warframe.name === "Equinox Prime"
     );

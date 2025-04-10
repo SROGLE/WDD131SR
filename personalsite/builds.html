@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Equinox Builds</title>
+    <meta
+      name="description"
+      content="Explore Equinox Warframe Builds. Choose between Day and Night builds for enhanced performance in Warframe!"
+    />
+    <title>Equinox Warframe Builds</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <h1>Equinox Builds</h1>
+      <h1>Equinox Warframe Builds</h1>
       <nav>
         <a href="index.html">Home</a>
         <a href="builds.html">Equinox Builds</a>
@@ -16,19 +20,23 @@
     </header>
     <main>
       <section>
-        <h2>Select a Build</h2>
+        <h2>Choose Your Build</h2>
+        <!-- Add the image with the equinox-image class to follow the CSS rules -->
+        <img
+          class="equinox-image"
+          src="images/equinox prime.webp"
+          alt="Equinox Warframe"
+        />
+
+        <!-- Elements required by the main.js for toggling builds -->
         <button id="toggleBuild">Switch to Night Form</button>
-      </section>
-      <section id="buildInfo">
-        <!-- Day/Night builds will be injected here -->
-      </section>
-      <section id="buildContainer">
-        <!-- Warframe API data will be injected here -->
+        <div id="buildInfo"></div>
+        <div id="buildContainer"></div>
       </section>
     </main>
     <footer>
       <p>&copy; 2025 Spencer's Warframe Builds</p>
     </footer>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </body>
 </html>
